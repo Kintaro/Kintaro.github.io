@@ -4,10 +4,9 @@ title: "A window manager in Rust - 01"
 description: "How to write a window manager in Rust. Part I"
 category: rust
 tags: [how-to, rust]
-imagefeature: cover10.jpg
 ---
 
-General notes and suggestions for customizing **HMFAYSAL Notepad Theme**.
+
 
 <section id="table-of-contents" class="toc">
   <header>
