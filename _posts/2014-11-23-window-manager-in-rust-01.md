@@ -124,12 +124,32 @@ as the *DISPLAY* environment variable. This is in almost all cases standard proc
 Then we just get the default screen and retrieve its root window, i.e. the top parent window spanning
 the whole screen.
 
+## Putting it together
+
+We now have a barely functional window system and an empty main function. Let's put 'em together!
+We go to *src/windowmanager.rs* and add this to the main function:
+
+{% highlight rust %}
+let window_system = WindowSystem::new();
+
+while true {}
+{% endhighlight %}
+
+And don't forget to add the module:
+
+{% highlight rust %}
+use window_system::WindowSystem;
+
+mod window_system;
+{% endhighlight %}
+
 ## Testing
 
 Wow, we created a window manager that can literally do nothing but open a display. Yay us. Still, we
 might want to test if everything is fine so far. But how do we test it? Like this:
 
 {% highlight bash %}
+cargo build
 Xephyr :1 &
 DISPLAY=:1 ./target/windowmanager &
 {% endhighlight %}
