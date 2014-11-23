@@ -23,22 +23,11 @@ Notes:
 {% highlight haskell %}
 module A9n where
 
-import qualified Data.Text as T
-import qualified Data.List as L
-import Data.Char (isDigit, isAlpha)
-
-abbreviate' :: String -> String -> String
-abbreviate' res [] = res
-abbreviate' res (x:[]) = res ++ [x]
-abbreviate' res (x:xs)
-  | check = abbreviate' result remainder 
-  | otherwise = abbreviate' (res ++ [x]) xs
-  where check = isAlpha x && 2 < length rest -- check if word is long enough and begins with a character
-        rest = takeWhile isAlpha xs -- the rest of the word after the first character
-        result = res ++ [x] ++ abb -- the result after application to the next word
-        abb = (show $ (length $ rest) - 1) ++ [last $ rest] -- abbreviate the word
-        remainder = dropWhile isAlpha xs -- skip till next word
+import Data.List (concat, groupBy)
+import Data.Char (isAlpha)
 
 abbreviate :: String -> String
-abbreviate w = abbreviate' [] w
+abbreviate = concat . map abbreviate' . groupBy ((.isAlpha) . (&&) . isAlpha)
+  where abbreviate' xs = let l = length xs in
+                        if l < 4 then xs else head xs : show (l - 2) ++ [last xs]
 {% endhighlight %}
