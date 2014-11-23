@@ -22,3 +22,13 @@ imagefeauture: cover11.jpg
 ## Motivation
 
 ## What we need
+
+Well, of course we'll need a working rust installation. Preferably a nightly build.
+Then we'll need some tools for testing, because we don't want to log out and back in again
+every single time we change something, do we? (Don't worry, we'll have something much cooler later).
+So we need a nested X server. So grab your favorite package manager and install Xephyr.
+I'm assuming Arch in these examples.
+
+{% highlight bash %}
+sudo pacman -S xorg-server-xephyr
+{% endhighlight %}
