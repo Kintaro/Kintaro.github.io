@@ -21,6 +21,10 @@ A tutorial on how to write a tiling window manager in Rust. The accompanying cod
 
 ## Motivation
 
+Why the hell would we even want to write a window manager? Isn't that a lot of work? To be honest, not really. There are a few ismall, tiny, yet awesome window managers out there (Haha, get it? Okay, I'll show myself out...), like *i3*, *awesome* and the fabulous *xmonad*. Especially *xmonad*, in its core totals about 2700 lines of code, comments included, and there are a lot of them. So, a basic window manager can be written in around 2000 lines of code. Nifty, eh?
+
+But why try this in Rust? Because Rust is awesome. Wouldn't it be nice to have your own window manager? One that doesn't segfault out of the blue? One that doesn't leak memory like a sieve? Or just for the obvious reason: because we can. Because it's fun and because the best way to learn more about the internals of a window manager is to write one yourself.
+
 ## What we need
 
 Well, of course we'll need a working rust installation. Preferably a nightly build.
@@ -81,7 +85,7 @@ setup is complete so far.
 
 To talk to the X server, we will have to handle a lot of unsafe code. And let's be honest, unsafe code isn't
 very pleasant to the eye. So we're going to hide all that stuff in our own wrapper to make all that unsafe
-stafe a tad more bearable. This is how *src/window_system.rs* should look like:
+stuff a tad more bearable. This is how *src/window_system.rs* should look like:
 
 {% highlight rust %}
 use std::ptr;
