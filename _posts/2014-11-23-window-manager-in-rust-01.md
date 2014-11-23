@@ -80,4 +80,45 @@ setup is complete so far.
 ## Creating a display
 
 To talk to the X server, we will have to handle a lot of unsafe code. And let's be honest, unsafe code isn't
-very pleasant to the eye. So we're going to hide all that stuff in our own 
+very pleasant to the eye. So we're going to hide all that stuff in our own wrapper to make all that unsafe
+stafe a tad more bearable. This is how *src/window_system.rs* should look like:
+
+{% highlight rust %}
+use std::ptr;
+use xlib::{ Display, Window }
+
+pub struct WindowSystem {
+	display: *mut Display,
+	root:    Window
+}
+{% endhighlight %}
+
+Yep, we don't need to keep track of any more data. We only need a pointer to the X display and
+the root window (Window is just a plain simple u64 ID).
+Now on to create the window system:
+
+{% highlight rust %}
+impl WindowSystem {
+	pub fn new() -> WindowSystem {
+		unsafe {
+			let display = XOpenDisplay(ptr::null_mut());
+			let screen  = XDefaultScreenOfDisplay(display);
+			let root    = XRootWindowOfScreen(screen);
+
+			WindowSystem {
+				display: display,
+				root:    root
+			}
+		}
+	}
+}
+{% endhighlight %}
+
+Easy as that. By calling 
+{% highlight rust %}
+XOpenDisplay(ptr::null_mut())
+{% endhighlight %}
+we create a new display on the default X display, which in case of a null pointer is just the same
+as the *DISPLAY* environment variable. This is in almost all cases standard procedure.
+Then we just get the default screen and retrieve its root window, i.e. the top parent window spanning
+the whole screen.
