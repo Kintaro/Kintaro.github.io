@@ -85,7 +85,8 @@ stafe a tad more bearable. This is how *src/window_system.rs* should look like:
 
 {% highlight rust %}
 use std::ptr;
-use xlib::{ Display, Window }
+use xlib::{ Display, Window };
+use xlib::{ XOpenDisplay, XDefaultScreenOfDisplay, XRootWindowOfScreen };
 
 pub struct WindowSystem {
 	display: *mut Display,
@@ -114,7 +115,7 @@ impl WindowSystem {
 }
 {% endhighlight %}
 
-Easy as that. By calling 
+Easy as that. By calling
 {% highlight rust %}
 XOpenDisplay(ptr::null_mut())
 {% endhighlight %}
