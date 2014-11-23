@@ -7,7 +7,7 @@ tags: [how-to, rust]
 imagefeature: cover10.jpg
 ---
 
-
+A tutorial on how to write a tiling window manager in Rust. The accompanying code can be found [here](https://github.com/Kintaro/windowmanager-tutorial).
 
 <section id="table-of-contents" class="toc">
   <header>
@@ -79,3 +79,5 @@ setup is complete so far.
 
 ## Creating a display
 
+To talk to the X server, we will have to handle a lot of unsafe code. And let's be honest, unsafe code isn't
+very pleasant to the eye. So we're going to hide all that stuff in our own 
