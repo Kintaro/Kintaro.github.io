@@ -4,6 +4,7 @@ title: "A window manager in Rust - 01"
 description: "How to write a window manager in Rust. Part I"
 category: rust
 tags: [how-to, rust]
+comments: true
 imagefeature: cover10.jpg
 ---
 
