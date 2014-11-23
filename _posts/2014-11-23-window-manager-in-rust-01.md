@@ -32,3 +32,31 @@ I'm assuming Arch in these examples.
 {% highlight bash %}
 sudo pacman -S xorg-server-xephyr
 {% endhighlight %}
+
+Then it's time to setup our neat little project.
+
+{% highlight bash %}
+mkdir windowmanager
+cd windowmanager
+touch Cargo.toml
+{% endhighlight %}
+
+Great. Now grab a good editor (i.e. vim, not emacs) and edit Cargo.toml
+
+{%highlight INI %}
+[project]
+
+name = "windowmanager"
+version = "0.0.1"
+authors = ["Your Name"]
+
+[dependencies.xlib]
+git = "https://github.com/Kintaro/rust-xlib.git"
+branch = "class_hint"
+
+[dependencies.xinerama]
+git = "https://github.com/Kintaro/rust-xinerama.git"
+
+[[bin]]
+name = "windowmanager"
+{% endhighlight %}
