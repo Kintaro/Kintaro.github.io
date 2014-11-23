@@ -25,18 +25,17 @@ module A9n where
 
 import qualified Data.Text as T
 import qualified Data.List as L
+import Data.Char (isDigit, isAlpha)
 
-transform :: String -> String
-transform x = [head x] ++ show (length . tail . init $ x) ++ [last x]
-
-splitHyphen :: String -> [String]
-splitHyphen x = map T.unpack $ T.split (== '-') $ T.pack x
-
-abbreviate' :: String -> String
-abbreviate' w
-  | length w >= 4 = filter (/=' ') $ unwords $ L.intersperse ['-'] $ map transform $ splitHyphen w
-  | otherwise = w
+abbreviate'' :: String -> String -> String
+abbreviate'' res [] = res
+abbreviate'' res (x:[]) = res ++ [x]
+abbreviate'' res (x:xs) = if isAlpha x && is4 xs then abbreviate'' result remainder else abbreviate'' (res ++ [x]) xs
+  where result = res ++ [x] ++ abb
+        is4 s = (length $ takeWhile isAlpha s) > 2
+        abb = (show $ (length $ takeWhile isAlpha xs) - 1) ++ [last $ takeWhile isAlpha xs]
+        remainder = dropWhile isAlpha xs
 
 abbreviate :: String -> String
-abbreviate = unwords . (map abbreviate') . words
+abbreviate w = abbreviate'' [] w
 {% endhighlight %}
