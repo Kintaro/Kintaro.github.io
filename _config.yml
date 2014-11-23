@@ -70,8 +70,8 @@ kramdown:
 
 prose:
   rooturl: '_posts'
-  siteurl: 'http://kintaro.github.io'
-  relativeLinks: 'http://kintaro.github.io/links.jsonp'
+  siteurl: '//kintaro.github.io'
+  relativeLinks: '//kintaro.github.io/links.jsonp'
   media: 'images'
   metadata:
     _posts:
