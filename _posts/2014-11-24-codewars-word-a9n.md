@@ -27,15 +27,18 @@ import qualified Data.Text as T
 import qualified Data.List as L
 import Data.Char (isDigit, isAlpha)
 
-abbreviate'' :: String -> String -> String
-abbreviate'' res [] = res
-abbreviate'' res (x:[]) = res ++ [x]
-abbreviate'' res (x:xs) = if isAlpha x && is4 xs then abbreviate'' result remainder else abbreviate'' (res ++ [x]) xs
-  where result = res ++ [x] ++ abb
-        is4 s = (length $ takeWhile isAlpha s) > 2
-        abb = (show $ (length $ takeWhile isAlpha xs) - 1) ++ [last $ takeWhile isAlpha xs]
-        remainder = dropWhile isAlpha xs
+abbreviate' :: String -> String -> String
+abbreviate' res [] = res
+abbreviate' res (x:[]) = res ++ [x]
+abbreviate' res (x:xs)
+  | check = abbreviate' result remainder 
+  | otherwise = abbreviate' (res ++ [x]) xs
+  where check = isAlpha x && 2 < length rest -- check if word is long enough and begins with a character
+        rest = takeWhile isAlpha xs -- the rest of the word after the first character
+        result = res ++ [x] ++ abb -- the result after application to the next word
+        abb = (show $ (length $ rest) - 1) ++ [last $ rest] -- abbreviate the word
+        remainder = dropWhile isAlpha xs -- skip till next word
 
 abbreviate :: String -> String
-abbreviate w = abbreviate'' [] w
+abbreviate w = abbreviate' [] w
 {% endhighlight %}
