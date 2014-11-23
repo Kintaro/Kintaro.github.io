@@ -123,3 +123,18 @@ we create a new display on the default X display, which in case of a null pointe
 as the *DISPLAY* environment variable. This is in almost all cases standard procedure.
 Then we just get the default screen and retrieve its root window, i.e. the top parent window spanning
 the whole screen.
+
+## Testing
+
+Wow, we created a window manager that can literally do nothing but open a display. Yay us. Still, we
+might want to test if everything is fine so far. But how do we test it? Like this:
+
+{% highlight bash %}
+Xephyr :1 &
+DISPLAY=:1 ./target/windowmanager &
+{% endhighlight %}
+
+If you want to close it, just run
+{% highlight bash %}
+killall Xephyr
+{% endhighlight %}
