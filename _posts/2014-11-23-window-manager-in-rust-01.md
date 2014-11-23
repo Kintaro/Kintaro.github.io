@@ -38,6 +38,7 @@ Then it's time to setup our neat little project.
 {% highlight bash %}
 mkdir windowmanager
 cd windowmanager
+mkdir src
 touch Cargo.toml
 {% endhighlight %}
 
@@ -60,3 +61,21 @@ git = "https://github.com/Kintaro/rust-xinerama.git"
 [[bin]]
 name = "windowmanager"
 {% endhighlight %}
+
+We're now only missing an entry point. A window manager is basically just a normal program. Thus we
+need a main function. Let's go ahead and do that. Create a file src/windowmanager.rs,
+
+{% highlight rust %}
+extern crate libc;
+extern crate xlib;
+extern crate xinerama;
+
+fn main() {
+}
+{% endhighlight %}
+
+Nothing fancy so far. We just link to the needed libraries and have an empty main function. Our little
+setup is complete so far.
+
+## Creating a display
+
