@@ -114,7 +114,7 @@ html, body, .notepad-post-container, .notepad-post-header {
         .post-template .notepad-post-title h1 {
           font-size: 5.3125rem; } }
     .post-template .notepad-post-title.background--light h1 {
-      color: black; }
+      color: white; }
     .post-template .notepad-post-title.background--dark h1 {
       color: white; }
   .post-template button.trigger {
