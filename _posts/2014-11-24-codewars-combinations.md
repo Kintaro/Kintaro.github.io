@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Codewars - Credit Card Mask"
-description: "'Credit Card Mask' challenge on codewars"
+title: "Codewars - Combinations"
+description: "'Combinations' challenge on codewars"
 category: haskell
 tags: [haskell, codewars, functional]
 comments: true
