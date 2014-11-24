@@ -170,7 +170,7 @@ fn main() {
 
 *src/window_system.rs*
 {% highlight rust %}
-se std::ptr;
+use std::ptr;
 use xlib::{ Display, Window };
 use xlib::{ XOpenDisplay, XDefaultScreenOfDisplay, XRootWindowOfScreen };
 
