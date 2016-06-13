@@ -138,7 +138,7 @@ We go to *src/windowmanager.rs* and add this to the main function:
 {% highlight rust %}
 let window_system = WindowSystem::new();
 
-while true {}
+loop {}
 {% endhighlight %}
 
 And don't forget to add the module:
@@ -164,7 +164,7 @@ mod window_system;
 fn main() {
     let window_system = WindowSystem::new();
 
-    while true {}
+    loop {}
 }
 {% endhighlight %}
 
