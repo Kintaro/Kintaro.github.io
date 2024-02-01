@@ -4,8 +4,6 @@ date: 2024-02-01 10:41:00
 lastmod: 2024-02-01 10:41:00
 categories: 
 tags:
-  - "#cooking"
-  - "#recipes"
   - cooking
   - recipes
 aliases: 
