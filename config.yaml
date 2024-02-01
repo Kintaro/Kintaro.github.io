@@ -40,8 +40,8 @@ params:
         customText:
 
     dateFormat:
-        published: 2006-02-01 15:04
-        lastUpdated: 2006-02-01 15:04
+        published: 2006-02-01 15:04:01
+        lastUpdated: 2006-02-01 15:04:01
 
     sidebar:
         emoji: ⚙️
@@ -52,7 +52,7 @@ params:
             src: img/avatar.jpg
 
     article:
-        math: false
+        math: true
         toc: true
         readingTime: true
         license:
