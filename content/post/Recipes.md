@@ -14,4 +14,5 @@ share: true
 # Recipes
 
 - [[3-Resources/Shogayaki.md|Shogayaki]]: \-
+- [[3-Resources/Okonomiyaki Sauce.md|Okonomiyaki Sauce]]: \-
 - [[3-Resources/Okonomiyaki.md|Okonomiyaki]]: \-
