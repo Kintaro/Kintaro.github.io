@@ -6,9 +6,12 @@ categories:
 tags:
   - "#cooking"
   - "#recipes"
+  - cooking
+  - recipes
 aliases: 
 share: true
 ---
+
 
 # Recipes
 
